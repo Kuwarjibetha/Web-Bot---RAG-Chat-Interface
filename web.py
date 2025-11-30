@@ -16,8 +16,8 @@ from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Configuration - matching Gemini_web.py
-client = genai.Client(api_key="AIzaSyDTYFlukvgiQBF8aQbDfHl1wMWU-G7gcRc")
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDTYFlukvgiQBF8aQbDfHl1wMWU-G7gcRc"
+client = genai.Client(api_key="Enter your Api Key")
+os.environ["GOOGLE_API_KEY"] = "Enter your Api Key"
 
 # This must be the first Streamlit command
 st.set_page_config(layout="wide")
