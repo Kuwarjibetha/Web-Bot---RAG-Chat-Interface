@@ -8,3 +8,4 @@ faiss-cpu
 google-generativeai
 bs4
 requests
+pydantic==1.10.13         # <- REQUIRED (fixes your error)
