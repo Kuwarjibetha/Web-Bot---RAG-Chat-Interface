@@ -1,11 +1,6 @@
-import streamlit as st
-from langchain_community.document_loaders import WebBaseLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-import os
-from google import genai
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain_community.vectorstores import FAISS
-from langchain_core.prompts import PromptTemplate
+
+
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
@@ -15,8 +10,18 @@ from urllib.parse import urljoin, urlparse
 from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import streamlit as st
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+import os
+import google.generativeai as genai   # FIXED IMPORT
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_core.prompts import PromptTemplate
+
+
 # Configuration - matching Gemini_web.py
-client = genai.Client(api_key="AIzaSyCcqodcAnRdO_f1cfYyaKlBNOMQ0LPRSzw")
+genai.configure(api_key=os.getenv("AIzaSyCcqodcAnRdO_f1cfYyaKlBNOMQ0LPRSzw"))
 os.environ["GOOGLE_API_KEY"] = "AIzaSyCcqodcAnRdO_f1cfYyaKlBNOMQ0LPRSzw"
 
 # This must be the first Streamlit command
