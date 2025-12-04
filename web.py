@@ -10,8 +10,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 
-client = genai.Client(api_key="AIzaSyBFv-S76SnrOft7eGiNSUp0ql7ImuMlegc")
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBFv-S76SnrOft7eGiNSUp0ql7ImuMlegc"
+client = genai.Client(api_key="API key")
+os.environ["GOOGLE_API_KEY"] = "API key"
 
 
 st.set_page_config(layout="wide")
