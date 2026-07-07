@@ -8,6 +8,11 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 
+# -----------------------------------------------------------------
+# API KEY SETUP
+# On Render: set GOOGLE_API_KEY in the "Environment" tab of your service.
+# Locally: export GOOGLE_API_KEY=your_key_here  (or use a .env + python-dotenv)
+# -----------------------------------------------------------------
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
 if not GOOGLE_API_KEY:
@@ -20,11 +25,12 @@ if not GOOGLE_API_KEY:
 
 os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Web Bot - RAG Chat")
 st.title("Web Bot - RAG Chat Interface")
 
+# -----------------------------------------------------------------
 # Session state initialization
-
+# -----------------------------------------------------------------
 if "vector_db" not in st.session_state:
     st.session_state.vector_db = None
 if "main_chain" not in st.session_state:
@@ -37,9 +43,9 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 
-
+# -----------------------------------------------------------------
 # Helper functions
-
+# -----------------------------------------------------------------
 def format_docs(retrieved_docs):
     """Clean up page content: replace newlines with spaces, strip extra spaces."""
     cleaned_content = [
@@ -78,9 +84,9 @@ def need_rag(question):
     return True
 
 
-
+# -----------------------------------------------------------------
 # Step 1: Load a webpage
-
+# -----------------------------------------------------------------
 st.header("Step 1: Load a Webpage")
 user_input = st.text_input("Enter URL", placeholder="https://example.com")
 submit_button = st.button("Load URL")
@@ -156,8 +162,9 @@ Reply:
     else:
         st.error("Please enter a valid URL")
 
-
+# -----------------------------------------------------------------
 # Step 2: Chat interface
+# -----------------------------------------------------------------
 if st.session_state.url_loaded:
     st.divider()
     st.header("Step 2: Ask Questions")
