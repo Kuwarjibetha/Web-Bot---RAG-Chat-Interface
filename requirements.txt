@@ -1,12 +1,11 @@
-streamlit
-langchain
-langchain-community
-langchain-core
-langchain-google-genai
-langchain-text-splitters
-faiss-cpu
-google-generativeai
-bs4
-requests
-pydantic==1.10.13         # <- REQUIRED (fixes your error)
-
+streamlit==1.38.0
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-core==0.2.38
+langchain-text-splitters==0.2.4
+langchain-google-genai==1.0.10
+google-generativeai==0.7.2
+faiss-cpu==1.8.0
+beautifulsoup4==4.12.3
+requests==2.32.3
+pydantic==2.7.4
